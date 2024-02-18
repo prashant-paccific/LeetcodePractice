@@ -1,5 +1,6 @@
 # 88. Merge Sorted Array
 
+## Problem Statement
 You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
 
 Merge nums1 and nums2 into a single array sorted in non-decreasing order.
@@ -39,3 +40,24 @@ nums2.length == n
 
 
 Follow up: Can you come up with an algorithm that runs in O(m + n) time?
+
+### Solution:
+```java
+public class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i=m-1;
+        int j=n-1;
+        int k=n+m-1;
+        while(j>=0 && i>=0){
+            if(nums1[i]>nums2[j]){
+                nums1[k--]=nums1[i--];
+            } else{
+                nums1[k--]=nums2[j--];
+            }
+        }
+        while(j>=0){
+            nums1[k--]=nums2[j--];
+        }
+    }
+}
+```
