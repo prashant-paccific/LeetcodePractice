@@ -42,3 +42,20 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 1 <= nums.length <= 3 * 104
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
+
+
+```java
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int j = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+        return j;
+    }
+}
+
+```
